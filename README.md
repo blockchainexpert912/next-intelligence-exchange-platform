@@ -10,3 +10,4 @@ https://goerli.etherscan.io/address/0xf78f9b704d8a04442b86392089c3d4bd57da9a35#c
 <h1>Flow Diagram</h1>
 
 <img src="./flow.png" alt="Flow Diagram" title="Arch&Flowssss Diagram">
+<img src="./archetcture.png" alt="Flow Diagram" title="Arch&Flowssss Diagram">
