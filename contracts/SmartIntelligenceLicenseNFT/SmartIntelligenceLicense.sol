@@ -2,7 +2,6 @@
 pragma solidity ^0.8.0;
 import "./ERC721Enumerable.sol";
 import "./ReentrancyGuard.sol";
-import "hardhat/console.sol";
 
 
 interface IERC20 {
@@ -35,6 +34,7 @@ interface IERC20 {
     );
 }
 
+
 contract SmartIntelligenceLicense is ERC721Enumerable, ReentrancyGuard {
     using Strings for uint256;
 
@@ -43,6 +43,7 @@ contract SmartIntelligenceLicense is ERC721Enumerable, ReentrancyGuard {
     IERC20 private _paymentToken;
     bool private _paused = false;
     mapping(uint256 => SILDetail) public SILDetails;
+
 
     event UpdateMintPrice(uint256 oldMintPrice, uint256 newMintPrice);
     event UpdatePause(bool oldVal, bool newVal);
@@ -164,6 +165,10 @@ contract SmartIntelligenceLicense is ERC721Enumerable, ReentrancyGuard {
         );
         
         SILDetails[_tokenId] = _SILDetail;
+    }
+
+    function version() external pure returns(uint32) {
+        return 1; //1.0.0
     }
 
 }
