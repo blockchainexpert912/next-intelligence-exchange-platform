@@ -42,18 +42,11 @@ contract SmartIntelligenceLicense is ERC721Enumerable, ReentrancyGuard {
     uint256 private _price;
     IERC20 private _paymentToken;
     bool private _paused = false;
-    mapping(uint256 => SILDetail) public SILDetails;
-
 
     event UpdateMintPrice(uint256 oldMintPrice, uint256 newMintPrice);
     event UpdatePause(bool oldVal, bool newVal);
     event UpdatePaymentToken(address oldPaymentToken, address newPaymentToken);
     event NewModelMint(address creator, uint256 price);
-    // Model Properties on chain
-    struct SILDetail {
-        bool enableSale; //Agreement To sell Copyright agreement
-        bool enableInvestment; //Allows investors to invest
-    }
 
     constructor(string memory baseURI, uint256 price, address paymentToken)
         ERC721("Smart Intelligence License NFT", "SIL")
@@ -103,15 +96,13 @@ contract SmartIntelligenceLicense is ERC721Enumerable, ReentrancyGuard {
         _paymentToken = IERC20(_newPaymentToken);
     }
 
-    function adopt(SILDetail calldata _SILDetail) public nonReentrant{
+    function adopt() public nonReentrant{
         uint256 supply = totalSupply();
         require(!_paused, "Sale is not active currently.");
         require(
             _paymentToken.balanceOf(msg.sender) >= _price,
             "The ERC20 token amount sent is not correct or Insuffient ERC20 Token amount sent."
         );
-
-        SILDetails[supply + 1] = _SILDetail;
 
         _paymentToken.transferFrom(msg.sender, address(this), _price);
 
@@ -151,20 +142,6 @@ contract SmartIntelligenceLicense is ERC721Enumerable, ReentrancyGuard {
         );
 
         _token.transfer(_msgSender(), _amount);
-    }
-
-    function setSILDetail(SILDetail calldata _SILDetail, uint256 _tokenId)
-        external
-    {
-        require(ownerOf(_tokenId) == _msgSender(), "Only ownenr can access!");
-        require(
-            _SILDetail.enableInvestment !=
-                SILDetails[_tokenId].enableInvestment ||
-                _SILDetail.enableSale != SILDetails[_tokenId].enableSale,
-            "Changed as you want already!"
-        );
-        
-        SILDetails[_tokenId] = _SILDetail;
     }
 
     function version() external pure returns(uint32) {

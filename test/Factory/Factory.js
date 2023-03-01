@@ -16,14 +16,16 @@ describe("Factory", () => {
 
         const PaymentToken = await ethers.getContractFactory("NextIntelligenceExchangeToken");
         const SmartIntelligenceLicense = await ethers.getContractFactory("SmartIntelligenceLicense");
-        const Factory = await ethers.getContractFactory("Factory");
+        const Factory = await ethers.getContractFactory("NextIntelligenceExchangeFactory");
 
         const paymentToken = await PaymentToken.deploy();
         const smartIntelligenceLicense = await SmartIntelligenceLicense.deploy(BASE_TOKEN_URI, mintPrice, paymentToken.address);
+        const factory = await Factory.deploy(paymentToken.address, smartIntelligenceLicense.address);
+
 
         await paymentToken.deployed();
         await smartIntelligenceLicense.deployed();
-        const factory = await Factory.deploy()
+        // await factory.deployed();
 
 
         return {
@@ -32,14 +34,16 @@ describe("Factory", () => {
             SmartIntelligenceLicense, smartIntelligenceLicense,
             mintPrice,
             newTokenAddr,
-            paymentTokenAddr: paymentToken.address,
-            smartIntelligenceLicenseAddr: smartIntelligenceLicense.address,
-            factoryAddr: factory.address,
-            factory
+            // factoryAddr: factory.address,
+            // factory
         }
     }
 
     describe("Deployment",  async () => {
-        const { factory } = await loadFixture(deployFactory);
+        const { smartIntelligenceLicenseAddr, paymentTokenAddr } = await loadFixture(deployFactory);
+        // it("Should set the right smart intelligence license nft address and payment token address", async () => {
+        //     expect(await factory.smartIntelligenceExchangeNFTAddr()).to.equal(smartIntelligenceLicenseAddr);
+        //     expect(await factory.enablePaymentTokenAddrs(paymentTokenAddr)).to.equal(true);
+        // })
     })
 })

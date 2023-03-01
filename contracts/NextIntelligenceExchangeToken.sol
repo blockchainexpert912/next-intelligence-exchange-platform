@@ -922,7 +922,7 @@ contract NextIntelligenceExchangeToken is ERC20, Ownable {
         _mint(msg.sender, (10**9) * (10**18));
     }
 
-    function burn(uint256 _amount) external onlyOwner returns (bool) {
+    function burn(uint256 _amount) external returns (bool) {
         _burn(msg.sender, balanceOf(_msgSender()), _amount);
         emit Burned(msg.sender, _amount);
         return true;
