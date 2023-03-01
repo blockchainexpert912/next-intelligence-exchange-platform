@@ -35,7 +35,7 @@ interface IERC20 {
 }
 
 
-contract SmartIntelligenceLicense is ERC721Enumerable, ReentrancyGuard {
+contract DataNFTContract is ERC721Enumerable, ReentrancyGuard {
     using Strings for uint256;
 
     string _baseTokenURI;
@@ -49,7 +49,7 @@ contract SmartIntelligenceLicense is ERC721Enumerable, ReentrancyGuard {
     event NewModelMint(address creator, uint256 price);
 
     constructor(string memory baseURI, uint256 price, address paymentToken)
-        ERC721("Smart Intelligence License NFT", "SIL")
+        ERC721("Data NFT Token", "DNT")
     {
         setBaseURI(baseURI);
         _price = price;

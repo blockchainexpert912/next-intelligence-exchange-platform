@@ -1,11 +1,11 @@
 # next-intelligence-exchange-platform
 Next Intelligence Exchange Platform
 
-Payment Token: Next Intelligence Exchange Token (NIE token)
-https://goerli.etherscan.io/address/0x7e9a25853bf35931e1fa63aa49a7fceef6acd51a#code
+Payment Token: The Intelligence Exchange Token (TIEX token)
+https://testnet.bscscan.com/address/0xc9c806a2986ce19d0eb3dfbc2ceb7b8492e3f4ee#code
 
-ML Model NFT Token: Smart Intelligence License NFT (SIL token)
-https://goerli.etherscan.io/address/0xf78f9b704d8a04442b86392089c3d4bd57da9a35#code
+Data NFT Token: Data NFT Token (DNT token)
+https://testnet.bscscan.com/address/0xF1E974527D845e775423CD1D6c8f6d6FD93d60D6#code
 
 <h1>Flow Diagram</h1>
 
