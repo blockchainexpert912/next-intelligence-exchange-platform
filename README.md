@@ -5,7 +5,7 @@ Payment Token: The Intelligence Exchange Token (TIEX token)
 https://testnet.bscscan.com/address/0x4ed13A30C599B68c94D852B4ab578436F51C993A#code
 
 Data NFT Token: Data NFT Token (DNT token)
-https://testnet.bscscan.com/address/0x36e9C35dC128379Ec1caEf3CC9C0f5B97b55eA5A#code
+https://testnet.bscscan.com/address/0x550b7d989a07b9f60e5d9f992a1ec300b23f7d73#code
 
 <h1>Flow Diagram</h1>
 
