@@ -2,10 +2,10 @@
 Next Intelligence Exchange Platform
 
 Payment Token: The Intelligence Exchange Token (TIEX token)
-https://testnet.bscscan.com/address/0xc9c806a2986ce19d0eb3dfbc2ceb7b8492e3f4ee#code
+https://testnet.bscscan.com/address/0x4ed13A30C599B68c94D852B4ab578436F51C993A#code
 
 Data NFT Token: Data NFT Token (DNT token)
-https://testnet.bscscan.com/address/0xF1E974527D845e775423CD1D6c8f6d6FD93d60D6#code
+https://testnet.bscscan.com/address/0x36e9C35dC128379Ec1caEf3CC9C0f5B97b55eA5A#code
 
 <h1>Flow Diagram</h1>
 
