@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>Storj Download Example</title>
+</head>
+<body>
+<script id="Storj" type="text/javascript" src="../build/Storj.js"></script>
+<div id="loader" style="width:720px;height:405px;">
+  <div style="width:620px;height:20px;left:50px;top:202px;border-radius:5px;border:2px solid black;position:absolute;">
+    <div id="progress" style="width:0%;height:100%;background:#3498db"></div>
+  </div>
+</div>
+<script>
+
+var loader = document.getElementById('loader');
+var progress = document.getElementById('progress');
+
+var onProgress = function( update ){
+  progress.style.width = ( update * 100 ) + '%';
+};
+
+var options = {
+  bucketId: 'ab5517b0232f29778a1d36e0',
+  file: 'Storj.webm',
+  size: 897570,
+  onProgress: onProgress
+};
+
+var downloader = new Storj.Downloader( options, function( err, data ){
+  if( err ){ return console.log(err); }
+
+  var blob = new Blob([data], {type: "video/webm"});
+  var url = URL.createObjectURL(blob);
+  var video = document.createElement('video');
+  video.src = url;
+  video.controls = true;
+  video.style.width = '720px';
+  video.play();
+  document.body.removeChild( loader );
+  document.body.appendChild(video);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Storj Download Example</title>
+</head>
+<body>
+<script id="Storj" type="text/javascript" src="../build/Storj.js"></script>
+<script>
+
+var options = {
+  bucketId: 'ab5517b0232f29778a1d36e0',
+  file: 'README.md',
+  size: 2214
+};
+
+var downloader = new Storj.Downloader(options, function( err, blob ){
+  if( err ){ return console.log(err); }
+
+  var reader = new FileReader();
+  reader.onloadend = function(){
+    var pre = document.createElement('pre');
+    pre.innerText = reader.result;
+    document.body.appendChild(pre);
+  };
+  reader.readAsText(blob, 'utf8');
+});
+</script>
+</body>
+</html>

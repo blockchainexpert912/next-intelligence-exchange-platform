@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Storj Download Example</title>
+</head>
+<body>
+<script id="Storj" type="text/javascript" src="../build/Storj.js"></script>
+<script>
+
+var audio = document.createElement('audio');
+audio.controls = true;
+document.body.appendChild(audio);
+
+var options = {
+  bucketId: 'ab5517b0232f29778a1d36e0',
+  file: 'war.webm',
+  element: audio,
+  codec: 'audio/webm;codecs="vorbis"'
+};
+
+var streamer = new Storj.Stream(options, function( err ){
+  if( err ){ return console.log(err); }
+});
+
+</script>
+</body>
+</html>

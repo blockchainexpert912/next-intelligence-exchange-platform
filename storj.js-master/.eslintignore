@@ -1,0 +1,7 @@
+jsdoc/
+jsdoc/
+storj.*.js
+examples/
+node_modules/
+coverage/
+firefox/
